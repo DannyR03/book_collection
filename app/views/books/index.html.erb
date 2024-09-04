@@ -1,0 +1,31 @@
+<h1>Home Page</h1>
+
+<p>This application is meant to keep track of books.</p>
+<p><%= link_to("Click here to add a new book", new_book_path)%></p> <br />
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td>
+          <button><%= link_to("Show", book_path(book)) %></button>
+          <button><%= link_to("Edit", edit_book_path(book))  %></button>
+          <button><%= link_to("Delete", delete_book_path(book))  %></button>
+        </td>
+      </tr> 
+    <% end %>
+  </tbody>
+</table>
+
+
+<% if flash[:notice] %>
+  <br/><div><%= flash[:notice]%></div>
+<% end %>
+  

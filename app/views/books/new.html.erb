@@ -1,0 +1,12 @@
+<h1>Add a new book.</h1>
+
+<%= form_for(@book) do |form| %>
+  <%= render(partial: 'form', locals: {f: form})%>
+
+  <div>
+    <%= form.submit 'Create Book'%>
+  </div>
+<% end %> <br />
+
+
+<%= link_to('Click here to return to the home page', books_path) %>
